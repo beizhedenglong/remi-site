@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy — Remi</title>
+  <meta name="description" content="How Remi handles your data: on your device and in your own iCloud. No ads, no tracking, no account required." />
+  <meta name="theme-color" content="#b37d6b" />
+
+  <link rel="icon" type="image/png" href="assets/app-icon.png" />
+  <link rel="apple-touch-icon" href="assets/app-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- ============ Nav ============ -->
+  <header class="nav">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <img src="assets/app-icon.png" alt="" width="34" height="34" />
+        Remi
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#how">How it works</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="support.html">Support</a></li>
+          <!-- TODO: replace # with the App Store product URL once published -->
+          <li><a class="btn btn-primary" href="#">Download</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-controls="nav-links" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="doc-hero">
+      <div class="container">
+        <span class="eyebrow">Legal</span>
+        <h1>Privacy Policy</h1>
+        <p class="updated">
+          Effective date: <span class="todo">[TODO: effective date]</span> ·
+          Provider: <span class="todo">[TODO: name or company]</span> ·
+          Contact: <span class="todo">[TODO: support email]</span>
+        </p>
+      </div>
+    </section>
+
+    <article class="doc">
+      <div class="doc-note">
+        This policy is tailored to Remi's current behavior. The provider should
+        review and adapt it to their jurisdiction before publishing; it is not
+        legal advice. Placeholders marked in yellow must be completed before
+        submitting to the App Store.
+      </div>
+
+      <p>
+        Remi is a reminder app with voice capture and AI-assisted task parsing. We
+        built it to keep your data on your device and in your own iCloud. We do
+        <strong>not</strong> sell your data, show ads, or track you across other
+        apps or websites.
+      </p>
+
+      <h2>What we process</h2>
+
+      <h3>Reminder content (text you type or dictate)</h3>
+      <p>
+        When you create a reminder, the text is sent to our processing service and
+        to our AI provider, <strong>DeepSeek</strong>, to turn natural language
+        into structured reminders (title, date, time, list, subtasks). We send
+        only the reminder text plus your list names, the current time, and
+        time-zone. This content is processed to return your reminders and is
+        <strong>not</strong> linked to your identity (Remi has no account or
+        login). If the service is unavailable, Remi parses your text on-device
+        instead.
+      </p>
+
+      <h3>Voice input</h3>
+      <p>
+        When you use voice capture, audio is transcribed using <strong>Apple's
+        Speech Recognition</strong>. Depending on your device, Apple may process
+        audio on device or on Apple's servers under Apple's privacy policy. We do
+        not store your audio; we use only the resulting text as reminder content
+        (see above).
+      </p>
+
+      <h3>Your reminders and lists (storage)</h3>
+      <p>
+        Reminders are stored locally on your device. If you enable iCloud sync,
+        they are stored in <strong>your private iCloud account</strong> (Apple
+        CloudKit) so they sync across your devices. We cannot access your iCloud
+        data.
+      </p>
+
+      <h3>App settings</h3>
+      <p>
+        Preferences such as language, default reminder timing, and sync on/off are
+        stored on your device (and in your app group / iCloud key-value store) to
+        make the app work. They are not used to identify you.
+      </p>
+
+      <h3>Purchases</h3>
+      <p>
+        Subscriptions are processed by <strong>Apple</strong>. We receive only
+        whether you have an active entitlement; we never receive your payment
+        details.
+      </p>
+
+      <h2>What we do <strong>not</strong> collect</h2>
+      <ul>
+        <li>No name, email, phone number, or account.</li>
+        <li>No advertising identifiers; no cross-app/website tracking.</li>
+        <li>No location data (time zone is a device setting, not your location).</li>
+        <li>No third-party analytics or ad SDKs.</li>
+      </ul>
+
+      <h2>Third parties</h2>
+      <ul>
+        <li><strong>Apple</strong> — Speech Recognition, iCloud/CloudKit, App Store &amp; subscriptions.</li>
+        <li><strong>DeepSeek</strong> — AI parsing of reminder text (see DeepSeek's privacy policy).</li>
+        <li><span class="todo">[TODO: cloud host, e.g. Alibaba Cloud]</span> — hosts our request-forwarding service.</li>
+      </ul>
+      <p>
+        We ask these providers to process data only to deliver the feature and not
+        for their own unrelated purposes. Reminder text sent for parsing is used to
+        return your result and is not used by us to build a profile of you.
+      </p>
+
+      <h2>Data retention</h2>
+      <p>
+        Reminder content is processed transiently to return results. We do not
+        maintain our own user database of your reminders. Data you store in iCloud
+        stays until you delete it.
+        <span class="todo">[TODO: state any backend logging/retention, e.g. "request logs are retained for up to N days, then deleted."]</span>
+      </p>
+
+      <h2>Children</h2>
+      <p>
+        Remi is intended for a general audience (rating 4+) and is not directed to
+        children under 13. We do not knowingly collect personal data from children.
+      </p>
+
+      <h2>Your choices</h2>
+      <ul>
+        <li>Turn off iCloud sync in Settings to keep data on device only.</li>
+        <li>Skip voice capture and type reminders instead.</li>
+        <li>Delete reminders in-app (including "Recently Deleted"); manage or delete iCloud data from your Apple device settings.</li>
+        <li>Manage or cancel your subscription in the App Store.</li>
+      </ul>
+
+      <h2>Changes</h2>
+      <p>
+        We may update this policy; material changes will be reflected by a new
+        effective date on this page.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions? Contact us at <span class="todo">[TODO: support email]</span>.
+      </p>
+    </article>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html">
+            <img src="assets/app-icon.png" alt="" width="34" height="34" />
+            Remi
+          </a>
+          <p>Voice-first, AI-powered reminders in English and 中文 — private by design.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#how">How it works</a>
+            <a href="index.html#pricing">Pricing</a>
+            <!-- TODO: replace # with the App Store product URL once published -->
+            <a href="#">Download</a>
+          </div>
+          <div class="footer-col">
+            <h4>Legal &amp; support</h4>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+            <a href="support.html">Support</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year>2026</span> <span class="todo">[TODO: provider / developer name]</span>. All rights reserved.</span>
+        <span>Contact: <span class="todo">[TODO: support email]</span></span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

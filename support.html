@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Support — Remi</title>
+  <meta name="description" content="Get help with Remi: voice capture, AI parsing, iCloud sync, subscriptions, and more. Frequently asked questions and how to contact us." />
+  <meta name="theme-color" content="#b37d6b" />
+
+  <link rel="icon" type="image/png" href="assets/app-icon.png" />
+  <link rel="apple-touch-icon" href="assets/app-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- ============ Nav ============ -->
+  <header class="nav">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <img src="assets/app-icon.png" alt="" width="34" height="34" />
+        Remi
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#how">How it works</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="support.html">Support</a></li>
+          <!-- TODO: replace # with the App Store product URL once published -->
+          <li><a class="btn btn-primary" href="#">Download</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-controls="nav-links" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="doc-hero">
+      <div class="container">
+        <span class="eyebrow">Support</span>
+        <h1>How can we help?</h1>
+        <p class="updated">Answers to common questions about Remi — and how to reach us.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:var(--sp-xl)">
+      <div class="container">
+        <div class="faq">
+          <details>
+            <summary>How do I create a reminder by voice?</summary>
+            <p>Tap the microphone button on the Tasks screen and speak naturally — for example, "Remind me to call the dentist tomorrow at 9." Remi transcribes your speech and uses AI to fill in the title, date, time, list, and any subtasks.</p>
+          </details>
+          <details>
+            <summary>Does Remi work offline?</summary>
+            <p>Yes. If the AI service is unreachable, Remi falls back to an on-device parser, so you can still create reminders in airplane mode or with a poor connection.</p>
+          </details>
+          <details>
+            <summary>How does iCloud sync work?</summary>
+            <p>Turn on iCloud sync in Settings and your reminders, lists, and subtasks sync across your devices through your own private iCloud account. Prefer to keep everything on one device? Leave sync off — your data stays local.</p>
+          </details>
+          <details>
+            <summary>What languages does Remi support?</summary>
+            <p>English and 简体中文. You can switch the language anytime in Settings, and dictate reminders in whichever language you're using — voice capture and AI parsing follow along.</p>
+          </details>
+          <details>
+            <summary>What's included in the subscription and free trial?</summary>
+            <p>The subscription unlocks voice capture, AI parsing, unlimited reminders and lists, and iCloud sync. New subscribers get a 7-day free trial; it converts to a monthly subscription unless canceled at least 24 hours before the trial ends.</p>
+          </details>
+          <details>
+            <summary>How do I cancel or manage my subscription?</summary>
+            <p>Open the <strong>App Store</strong> → tap your account → <strong>Subscriptions</strong> → select Remi to change or cancel. Cancel at least 24 hours before your trial or renewal date to avoid being charged.</p>
+          </details>
+          <details>
+            <summary>How do I restore my purchase on a new device?</summary>
+            <p>Tap <strong>Restore Purchases</strong> on the paywall or in Settings while signed in with the same Apple ID you used to subscribe.</p>
+          </details>
+          <details>
+            <summary>How do I recover a deleted reminder?</summary>
+            <p>Open <strong>Recently Deleted</strong> to restore a reminder before it expires and is permanently removed.</p>
+          </details>
+          <details>
+            <summary>What data does Remi collect?</summary>
+            <p>Remi has no account, no ads, and no tracking. Your reminders live on your device and in your own iCloud. Reminder text is used only to create your reminders. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
+          </details>
+        </div>
+
+        <div class="contact-card reveal">
+          <span class="eyebrow">Still need help?</span>
+          <h2>Get in touch</h2>
+          <p>Email us and we'll get back to you as soon as we can.</p>
+          <!-- TODO: replace the placeholder below with the real support email (and add an href="mailto:..." link). -->
+          <p style="font-size:1.15rem;font-weight:700">
+            <span class="todo">[TODO: support email]</span>
+          </p>
+          <p style="color:var(--secondary-text);font-size:0.9rem;margin:0">
+            When reporting an issue, let us know your device model, iOS version, and
+            the app version so we can help faster.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html">
+            <img src="assets/app-icon.png" alt="" width="34" height="34" />
+            Remi
+          </a>
+          <p>Voice-first, AI-powered reminders in English and 中文 — private by design.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#how">How it works</a>
+            <a href="index.html#pricing">Pricing</a>
+            <!-- TODO: replace # with the App Store product URL once published -->
+            <a href="#">Download</a>
+          </div>
+          <div class="footer-col">
+            <h4>Legal &amp; support</h4>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+            <a href="support.html">Support</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year>2026</span> <span class="todo">[TODO: provider / developer name]</span>. All rights reserved.</span>
+        <span>Contact: <span class="todo">[TODO: support email]</span></span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

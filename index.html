@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Remi — Voice-first reminders, organized by AI</title>
+  <meta name="description" content="Remi is a bilingual (English / 中文) reminder app. Speak naturally and AI turns your words into dated, sorted reminders — private by design, synced with your own iCloud." />
+  <meta name="theme-color" content="#b37d6b" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Remi — Voice-first reminders, organized by AI" />
+  <meta property="og:description" content="Speak it. Remi remembers. A bilingual, AI-powered reminder app that's private by design." />
+  <meta property="og:image" content="assets/app-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/png" href="assets/app-icon.png" />
+  <link rel="apple-touch-icon" href="assets/app-icon.png" />
+
+  <!-- Manrope (design.md system font) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- ============ Nav ============ -->
+  <header class="nav">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <img src="assets/app-icon.png" alt="" width="34" height="34" />
+        Remi
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="support.html">Support</a></li>
+          <!-- TODO: replace # with the App Store product URL once published -->
+          <li><a class="btn btn-primary" href="#">Download</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-controls="nav-links" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ Hero ============ -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Voice-first reminders</span>
+          <h1>Say it once.<br /><span class="accent">Remi</span> remembers.</h1>
+          <p class="hero-sub">
+            The bilingual reminder app that turns your voice into perfectly
+            organized, on-time reminders — powered by AI, private by design.
+          </p>
+          <div class="hero-actions">
+            <!-- TODO: replace # with the App Store product URL once published -->
+            <a class="btn btn-store" href="#" aria-label="Download on the App Store">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.42 2.22-1.17 3.03-.9.96-2.37 1.71-3.6 1.62-.15-1.14.42-2.34 1.11-3.09.81-.87 2.31-1.53 3.66-1.56zM20.6 17.02c-.6 1.38-.9 1.98-1.68 3.18-1.08 1.68-2.61 3.78-4.5 3.78-1.68 0-2.1-1.08-4.38-1.08-2.28 0-2.73 1.05-4.41 1.11-1.89.06-3.33-1.86-4.41-3.54C.36 17.31-.24 13.02 1.26 10.2c1.05-2.01 2.94-3.27 4.95-3.27 1.71 0 2.79 1.11 4.2 1.11 1.38 0 2.22-1.11 4.2-1.11 1.5 0 3.09.81 4.23 2.22-3.72 2.04-3.12 7.35.76 8.87z"/></svg>
+              <span class="store-copy"><small>Download on the</small><strong>App Store</strong></span>
+            </a>
+            <a class="btn btn-ghost" href="#features">See features</a>
+          </div>
+          <span class="hero-note">7-day free trial · No account needed</span>
+        </div>
+
+        <!-- CSS phone mockup (placeholder for real screenshots later) -->
+        <div class="phone-wrap" aria-hidden="true">
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="phone-notch"></div>
+              <div class="screen-head">
+                <div class="greeting">Good morning</div>
+                <div class="title">Today</div>
+              </div>
+              <div class="screen-body">
+                <div class="task">
+                  <span class="check"></span>
+                  <span class="meta">
+                    <span class="name">Call the dentist</span><br />
+                    <span class="time">9:00 AM</span>
+                    <span class="pill">Health</span>
+                  </span>
+                </div>
+                <div class="task">
+                  <span class="check"></span>
+                  <span class="meta">
+                    <span class="name">Pick up groceries</span><br />
+                    <span class="time">5:30 PM</span>
+                    <span class="pill">Errands</span>
+                  </span>
+                </div>
+                <div class="task done">
+                  <span class="check"></span>
+                  <span class="meta">
+                    <span class="name">Team standup</span><br />
+                    <span class="time">Done · 10:00 AM</span>
+                  </span>
+                </div>
+                <div class="task">
+                  <span class="check"></span>
+                  <span class="meta">
+                    <span class="name">Water the plants</span><br />
+                    <span class="time">7:00 PM</span>
+                    <span class="pill">Home</span>
+                  </span>
+                </div>
+              </div>
+              <div class="screen-fab">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v4"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Features ============ -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Why Remi</span>
+          <h2>Everything you need to remember</h2>
+          <p>Capture fast, let AI do the organizing, and stay on track across every device.</p>
+        </div>
+        <div class="grid grid-4">
+          <article class="card reveal">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v4"/></svg>
+            </span>
+            <h3>Capture by voice</h3>
+            <p>Just speak to add reminders in seconds — no typing, hands-free.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9.5 13.9 11.4 12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"/><path d="M19 3v4M21 5h-4M5 17v3M6.5 18.5h-3"/></svg>
+            </span>
+            <h3>AI organizes it</h3>
+            <p>Smart parsing turns your words into dated, sorted reminders — with an on-device fallback offline.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 12l10 5 10-5"/><path d="M2 17l10 5 10-5"/></svg>
+            </span>
+            <h3>Lists &amp; widgets</h3>
+            <p>Unlimited reminders, lists, and home-screen widgets to keep everything in view.</p>
+          </article>
+          <article class="card reveal">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 .3-9A6 6 0 0 0 6.3 9.4 4 4 0 0 0 7 19h10.5z"/></svg>
+            </span>
+            <h3>iCloud sync</h3>
+            <p>Your reminders stay in sync across all your devices through your private iCloud.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ How it works ============ -->
+    <section class="section alt-surface" id="how">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">How it works</span>
+          <h2>Three steps to a clearer mind</h2>
+          <p>From a spoken thought to an on-time reminder — Remi handles the busywork.</p>
+        </div>
+        <div class="grid grid-3 steps">
+          <div class="step reveal">
+            <div class="num">1</div>
+            <h3>Capture by voice</h3>
+            <p>Tap the mic and speak naturally. No forms, no fuss.</p>
+          </div>
+          <div class="step reveal">
+            <div class="num">2</div>
+            <h3>AI organizes it</h3>
+            <p>Remi extracts the title, date, time, list, and subtasks for you.</p>
+          </div>
+          <div class="step reveal">
+            <div class="num">3</div>
+            <h3>Never miss a thing</h3>
+            <p>Smart notifications, widgets, and iCloud keep you on track everywhere.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Bilingual ============ -->
+    <section class="section">
+      <div class="container split">
+        <div class="reveal">
+          <span class="eyebrow">Bilingual</span>
+          <h2>Fluent in English and 中文</h2>
+          <p>
+            Remi understands and speaks both languages. Switch anytime and dictate
+            reminders in whichever language you're thinking in — the interface,
+            voice capture, and AI parsing all follow along.
+          </p>
+          <div class="lang-badges">
+            <span class="lang-badge active">English</span>
+            <span class="lang-badge active">简体中文</span>
+          </div>
+        </div>
+        <div class="callout-card reveal">
+          <ul class="check-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              Speak or type in English or 中文
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              AI understands mixed, natural phrasing
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              Full interface localization, switchable anytime
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Privacy ============ -->
+    <section class="section alt-surface">
+      <div class="container split">
+        <div class="callout-card reveal">
+          <ul class="check-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              Reminders live on your device and your own iCloud
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              No ads, no tracking, no third-party analytics
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              No account or login required
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              Works offline with on-device parsing
+            </li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <span class="eyebrow">Private by design</span>
+          <h2>Your reminders stay yours</h2>
+          <p>
+            Remi was built to keep your data on your device and in your own iCloud.
+            We don't sell your data, show ads, or track you across other apps.
+            Reminder text is used only to create your reminders.
+          </p>
+          <a class="btn btn-secondary" href="privacy.html">Read our Privacy Policy</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Pricing ============ -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Pricing</span>
+          <h2>Start free, then keep it simple</h2>
+          <p>Unlock voice capture, AI parsing, unlimited reminders &amp; lists, and iCloud sync.</p>
+        </div>
+        <div class="pricing reveal">
+          <span class="trial-tag">7-day free trial</span>
+          <div class="price">Free<small> for 7 days</small></div>
+          <p style="color:var(--secondary-text);margin-top:var(--sp-sm)">
+            then <span class="todo">[TODO: price / month]</span>, billed monthly
+          </p>
+          <!-- TODO: replace # with the App Store product URL once published -->
+          <a class="btn btn-primary" href="#" style="width:100%;margin-top:var(--sp-lg)">Start your free trial</a>
+          <p class="fine">
+            Auto-renewable subscription. Cancel anytime in the App Store at least
+            24 hours before the trial ends. See the
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+            and <a href="privacy.html">Privacy Policy</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html">
+            <img src="assets/app-icon.png" alt="" width="34" height="34" />
+            Remi
+          </a>
+          <p>Voice-first, AI-powered reminders in English and 中文 — private by design.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <a href="#features">Features</a>
+            <a href="#how">How it works</a>
+            <a href="#pricing">Pricing</a>
+            <!-- TODO: replace # with the App Store product URL once published -->
+            <a href="#">Download</a>
+          </div>
+          <div class="footer-col">
+            <h4>Legal &amp; support</h4>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+            <a href="support.html">Support</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year>2026</span> <span class="todo">[TODO: provider / developer name]</span>. All rights reserved.</span>
+        <span>Contact: <span class="todo">[TODO: support email]</span></span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
