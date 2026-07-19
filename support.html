@@ -3,8 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Support — Remi</title>
-  <meta name="description" content="Get help with Remi: voice capture, AI parsing, iCloud sync, subscriptions, and more. Frequently asked questions and how to contact us." />
+  <script>
+    (function () {
+      try {
+        var s = new URLSearchParams(location.search).get("lang");
+        var v = s || localStorage.getItem("remi.lang");
+        var lang = (v === "en" || v === "zh") ? v
+          : ((navigator.language || "en").toLowerCase().indexOf("zh") === 0 ? "zh" : "en");
+        var el = document.documentElement;
+        el.setAttribute("lang", lang === "zh" ? "zh-Hans" : "en");
+        el.setAttribute("data-lang", lang);
+        if (lang !== "en") el.classList.add("i18n-hold");
+      } catch (e) {}
+    })();
+  </script>
+  <title data-i18n="support.title">Support — Remi</title>
+  <meta name="description" data-i18n-attr="content:support.desc" content="Get help with Remi: voice capture, AI parsing, iCloud sync, subscriptions, and more. Frequently asked questions and how to contact us." />
   <meta name="theme-color" content="#b37d6b" />
 
   <link rel="icon" type="image/png" href="assets/app-icon.png" />
@@ -15,6 +29,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
+  <script src="i18n.js" defer></script>
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -27,14 +42,18 @@
       </a>
       <nav aria-label="Primary">
         <ul class="nav-links" id="nav-links">
-          <li><a href="index.html#features">Features</a></li>
-          <li><a href="index.html#how">How it works</a></li>
-          <li><a href="index.html#pricing">Pricing</a></li>
-          <li><a href="support.html">Support</a></li>
+          <li><a href="index.html#features" data-i18n="nav.features">Features</a></li>
+          <li><a href="index.html#how" data-i18n="nav.how">How it works</a></li>
+          <li><a href="index.html#pricing" data-i18n="nav.pricing">Pricing</a></li>
+          <li><a href="support.html" data-i18n="common.support">Support</a></li>
           <!-- App Store link goes here once the app is published. -->
-          <li><a class="btn btn-primary" aria-disabled="true">Coming soon</a></li>
+          <li><a class="btn btn-primary" aria-disabled="true" data-i18n="common.comingSoon">Coming soon</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" role="group" aria-label="Language" data-i18n-attr="aria-label:lang.aria">
+        <button type="button" data-set-lang="en">EN</button>
+        <button type="button" data-set-lang="zh">中文</button>
+      </div>
       <button class="nav-toggle" aria-label="Toggle menu" aria-controls="nav-links" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -44,9 +63,9 @@
   <main>
     <section class="doc-hero">
       <div class="container">
-        <span class="eyebrow">Support</span>
-        <h1>How can we help?</h1>
-        <p class="updated">Answers to common questions about Remi — and how to reach us.</p>
+        <span class="eyebrow" data-i18n="support.eyebrow">Support</span>
+        <h1 data-i18n="support.h1">How can we help?</h1>
+        <p class="updated" data-i18n="support.sub">Answers to common questions about Remi — and how to reach us.</p>
       </div>
     </section>
 
@@ -54,52 +73,52 @@
       <div class="container">
         <div class="faq">
           <details>
-            <summary>How do I create a reminder by voice?</summary>
-            <p>Tap the microphone button on the Tasks screen and speak naturally — for example, "Remind me to call the dentist tomorrow at 9." Remi transcribes your speech and uses AI to fill in the title, date, time, list, and any subtasks.</p>
+            <summary data-i18n="support.q1">How do I create a reminder by voice?</summary>
+            <p data-i18n="support.a1">Tap the microphone button on the Tasks screen and speak naturally — for example, "Remind me to call the dentist tomorrow at 9." Remi transcribes your speech and uses AI to fill in the title, date, time, list, and any subtasks.</p>
           </details>
           <details>
-            <summary>Does Remi work offline?</summary>
-            <p>Yes. If the AI service is unreachable, Remi falls back to an on-device parser, so you can still create reminders in airplane mode or with a poor connection.</p>
+            <summary data-i18n="support.q2">Does Remi work offline?</summary>
+            <p data-i18n="support.a2">Yes. If the AI service is unreachable, Remi falls back to an on-device parser, so you can still create reminders in airplane mode or with a poor connection.</p>
           </details>
           <details>
-            <summary>How does iCloud sync work?</summary>
-            <p>Turn on iCloud sync in Settings and your reminders, lists, and subtasks sync across your devices through your own private iCloud account. Prefer to keep everything on one device? Leave sync off — your data stays local.</p>
+            <summary data-i18n="support.q3">How does iCloud sync work?</summary>
+            <p data-i18n="support.a3">Turn on iCloud sync in Settings and your reminders, lists, and subtasks sync across your devices through your own private iCloud account. Prefer to keep everything on one device? Leave sync off — your data stays local.</p>
           </details>
           <details>
-            <summary>What languages does Remi support?</summary>
-            <p>English and 简体中文. You can switch the language anytime in Settings, and dictate reminders in whichever language you're using — voice capture and AI parsing follow along.</p>
+            <summary data-i18n="support.q4">What languages does Remi support?</summary>
+            <p data-i18n="support.a4">English and 简体中文. You can switch the language anytime in Settings, and dictate reminders in whichever language you're using — voice capture and AI parsing follow along.</p>
           </details>
           <details>
-            <summary>What's included in the subscription and free trial?</summary>
-            <p>The subscription unlocks voice capture, AI parsing, unlimited reminders and lists, and iCloud sync. New subscribers get a 7-day free trial; it converts to a monthly subscription unless canceled at least 24 hours before the trial ends.</p>
+            <summary data-i18n="support.q5">What's included in the subscription and free trial?</summary>
+            <p data-i18n="support.a5">The subscription unlocks voice capture, AI parsing, unlimited reminders and lists, and iCloud sync. New subscribers get a 7-day free trial; it converts to a monthly subscription unless canceled at least 24 hours before the trial ends.</p>
           </details>
           <details>
-            <summary>How do I cancel or manage my subscription?</summary>
-            <p>Open the <strong>App Store</strong> → tap your account → <strong>Subscriptions</strong> → select Remi to change or cancel. Cancel at least 24 hours before your trial or renewal date to avoid being charged.</p>
+            <summary data-i18n="support.q6">How do I cancel or manage my subscription?</summary>
+            <p data-i18n-html="support.a6">Open the <strong>App Store</strong> → tap your account → <strong>Subscriptions</strong> → select Remi to change or cancel. Cancel at least 24 hours before your trial or renewal date to avoid being charged.</p>
           </details>
           <details>
-            <summary>How do I restore my purchase on a new device?</summary>
-            <p>Tap <strong>Restore Purchases</strong> on the paywall or in Settings while signed in with the same Apple ID you used to subscribe.</p>
+            <summary data-i18n="support.q7">How do I restore my purchase on a new device?</summary>
+            <p data-i18n-html="support.a7">Tap <strong>Restore Purchases</strong> on the paywall or in Settings while signed in with the same Apple ID you used to subscribe.</p>
           </details>
           <details>
-            <summary>How do I recover a deleted reminder?</summary>
-            <p>Open <strong>Recently Deleted</strong> to restore a reminder before it expires and is permanently removed.</p>
+            <summary data-i18n="support.q8">How do I recover a deleted reminder?</summary>
+            <p data-i18n-html="support.a8">Open <strong>Recently Deleted</strong> to restore a reminder before it expires and is permanently removed.</p>
           </details>
           <details>
-            <summary>What data does Remi collect?</summary>
-            <p>Remi has no account, no ads, and no tracking. Your reminders live on your device and in your own iCloud. Reminder text is used only to create your reminders. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
+            <summary data-i18n="support.q9">What data does Remi collect?</summary>
+            <p data-i18n-html="support.a9">Remi has no account, no ads, and no tracking. Your reminders live on your device and in your own iCloud. Reminder text is used only to create your reminders. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
           </details>
         </div>
 
         <div class="contact-card reveal">
-          <span class="eyebrow">Still need help?</span>
-          <h2>Get in touch</h2>
-          <p>Email us and we'll get back to you as soon as we can.</p>
+          <span class="eyebrow" data-i18n="support.contactEyebrow">Still need help?</span>
+          <h2 data-i18n="support.contactTitle">Get in touch</h2>
+          <p data-i18n="support.contactBody">Email us and we'll get back to you as soon as we can.</p>
           <!-- TODO: replace the placeholder below with the real support email (and add an href="mailto:..." link). -->
           <p style="font-size:1.15rem;font-weight:700">
             <span class="todo">[TODO: support email]</span>
           </p>
-          <p style="color:var(--secondary-text);font-size:0.9rem;margin:0">
+          <p style="color:var(--secondary-text);font-size:0.9rem;margin:0" data-i18n="support.contactNote">
             When reporting an issue, let us know your device model, iOS version, and
             the app version so we can help faster.
           </p>
@@ -117,28 +136,28 @@
             <img src="assets/app-icon.png" alt="" width="34" height="34" />
             Remi
           </a>
-          <p>Voice-first, AI-powered reminders in English and 中文 — private by design.</p>
+          <p data-i18n="footer.tagline">Voice-first, AI-powered reminders in English and 中文 — private by design.</p>
         </div>
         <div class="footer-links">
           <div class="footer-col">
-            <h4>Product</h4>
-            <a href="index.html#features">Features</a>
-            <a href="index.html#how">How it works</a>
-            <a href="index.html#pricing">Pricing</a>
+            <h4 data-i18n="footer.product">Product</h4>
+            <a href="index.html#features" data-i18n="nav.features">Features</a>
+            <a href="index.html#how" data-i18n="nav.how">How it works</a>
+            <a href="index.html#pricing" data-i18n="nav.pricing">Pricing</a>
             <!-- App Store link goes here once the app is published. -->
-            <a aria-disabled="true">Coming soon</a>
+            <a aria-disabled="true" data-i18n="common.comingSoon">Coming soon</a>
           </div>
           <div class="footer-col">
-            <h4>Legal &amp; support</h4>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
-            <a href="support.html">Support</a>
+            <h4 data-i18n="footer.legalSupport">Legal &amp; support</h4>
+            <a href="privacy.html" data-i18n="common.privacyPolicy">Privacy Policy</a>
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" data-i18n="common.termsOfUse">Terms of Use</a>
+            <a href="support.html" data-i18n="common.support">Support</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; <span data-year>2026</span> <span class="todo">[TODO: provider / developer name]</span>. All rights reserved.</span>
-        <span>Contact: <span class="todo">[TODO: support email]</span></span>
+        <span>&copy; <span data-year>2026</span> <span class="todo">[TODO: provider / developer name]</span>. <span data-i18n="footer.rights">All rights reserved.</span></span>
+        <span><span data-i18n="footer.contactLabel">Contact:</span> <span class="todo">[TODO: support email]</span></span>
       </div>
     </div>
   </footer>

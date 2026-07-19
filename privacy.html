@@ -3,8 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Privacy Policy — Remi</title>
-  <meta name="description" content="How Remi handles your data: on your device and in your own iCloud. No ads, no tracking, no account required." />
+  <script>
+    (function () {
+      try {
+        var s = new URLSearchParams(location.search).get("lang");
+        var v = s || localStorage.getItem("remi.lang");
+        var lang = (v === "en" || v === "zh") ? v
+          : ((navigator.language || "en").toLowerCase().indexOf("zh") === 0 ? "zh" : "en");
+        var el = document.documentElement;
+        el.setAttribute("lang", lang === "zh" ? "zh-Hans" : "en");
+        el.setAttribute("data-lang", lang);
+        if (lang !== "en") el.classList.add("i18n-hold");
+      } catch (e) {}
+    })();
+  </script>
+  <title data-i18n="privacy.title">Privacy Policy — Remi</title>
+  <meta name="description" data-i18n-attr="content:privacy.desc" content="How Remi handles your data: on your device and in your own iCloud. No ads, no tracking, no account required." />
   <meta name="theme-color" content="#b37d6b" />
 
   <link rel="icon" type="image/png" href="assets/app-icon.png" />
@@ -15,6 +29,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
+  <script src="i18n.js" defer></script>
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -27,14 +42,18 @@
       </a>
       <nav aria-label="Primary">
         <ul class="nav-links" id="nav-links">
-          <li><a href="index.html#features">Features</a></li>
-          <li><a href="index.html#how">How it works</a></li>
-          <li><a href="index.html#pricing">Pricing</a></li>
-          <li><a href="support.html">Support</a></li>
+          <li><a href="index.html#features" data-i18n="nav.features">Features</a></li>
+          <li><a href="index.html#how" data-i18n="nav.how">How it works</a></li>
+          <li><a href="index.html#pricing" data-i18n="nav.pricing">Pricing</a></li>
+          <li><a href="support.html" data-i18n="common.support">Support</a></li>
           <!-- App Store URL not published yet; placeholder kept intentionally. -->
-          <li><a class="btn btn-primary" aria-disabled="true">Coming soon</a></li>
+          <li><a class="btn btn-primary" aria-disabled="true" data-i18n="common.comingSoon">Coming soon</a></li>
         </ul>
       </nav>
+      <div class="lang-switch" role="group" aria-label="Language" data-i18n-attr="aria-label:lang.aria">
+        <button type="button" data-set-lang="en">EN</button>
+        <button type="button" data-set-lang="zh">中文</button>
+      </div>
       <button class="nav-toggle" aria-label="Toggle menu" aria-controls="nav-links" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -44,9 +63,9 @@
   <main>
     <section class="doc-hero">
       <div class="container">
-        <span class="eyebrow">Legal</span>
-        <h1>Privacy Policy</h1>
-        <p class="updated">
+        <span class="eyebrow" data-i18n="privacy.eyebrow">Legal</span>
+        <h1 data-i18n="privacy.h1">Privacy Policy</h1>
+        <p class="updated" data-i18n-html="privacy.updated">
           Effective date: 2026-07-19 ·
           Provider: Remi Developers ·
           Contact: <a href="mailto:2501211450@qq.com">2501211450@qq.com</a>
@@ -55,23 +74,23 @@
     </section>
 
     <article class="doc">
-      <div class="doc-note">
+      <div class="doc-note" data-i18n="privacy.note">
         This policy is tailored to Remi's current behavior. The provider should
         review and adapt it to their jurisdiction before publishing; it is not
         legal advice.
       </div>
 
-      <p>
+      <p data-i18n-html="privacy.intro">
         Remi is a reminder app with voice capture and AI-assisted task parsing. We
         built it to keep your data on your device and in your own iCloud. We do
         <strong>not</strong> sell your data, show ads, or track you across other
         apps or websites.
       </p>
 
-      <h2>What we process</h2>
+      <h2 data-i18n="privacy.h2process">What we process</h2>
 
-      <h3>Reminder content (text you type or dictate)</h3>
-      <p>
+      <h3 data-i18n="privacy.h3reminder">Reminder content (text you type or dictate)</h3>
+      <p data-i18n-html="privacy.pReminder">
         When you create a reminder, the text is sent to our processing service and
         to a <strong>third-party AI provider</strong> to turn natural language
         into structured reminders (title, date, time, list, subtasks). We send
@@ -82,8 +101,8 @@
         instead.
       </p>
 
-      <h3>Voice input</h3>
-      <p>
+      <h3 data-i18n="privacy.h3voice">Voice input</h3>
+      <p data-i18n-html="privacy.pVoice">
         When you use voice capture, audio is transcribed using <strong>Apple's
         Speech Recognition</strong>. Depending on your device, Apple may process
         audio on device or on Apple's servers under Apple's privacy policy. We do
@@ -91,78 +110,78 @@
         (see above).
       </p>
 
-      <h3>Your reminders and lists (storage)</h3>
-      <p>
+      <h3 data-i18n="privacy.h3storage">Your reminders and lists (storage)</h3>
+      <p data-i18n-html="privacy.pStorage">
         Reminders are stored locally on your device. If you enable iCloud sync,
         they are stored in <strong>your private iCloud account</strong> (Apple
         CloudKit) so they sync across your devices. We cannot access your iCloud
         data.
       </p>
 
-      <h3>App settings</h3>
-      <p>
+      <h3 data-i18n="privacy.h3settings">App settings</h3>
+      <p data-i18n="privacy.pSettings">
         Preferences such as language, default reminder timing, and sync on/off are
         stored on your device (and in your app group / iCloud key-value store) to
         make the app work. They are not used to identify you.
       </p>
 
-      <h3>Purchases</h3>
-      <p>
+      <h3 data-i18n="privacy.h3purchases">Purchases</h3>
+      <p data-i18n-html="privacy.pPurchases">
         Subscriptions are processed by <strong>Apple</strong>. We receive only
         whether you have an active entitlement; we never receive your payment
         details.
       </p>
 
-      <h2>What we do <strong>not</strong> collect</h2>
+      <h2 data-i18n-html="privacy.h2notCollect">What we do <strong>not</strong> collect</h2>
       <ul>
-        <li>No name, email, phone number, or account.</li>
-        <li>No advertising identifiers; no cross-app/website tracking.</li>
-        <li>No location data (time zone is a device setting, not your location).</li>
-        <li>No third-party analytics or ad SDKs.</li>
+        <li data-i18n="privacy.nc1">No name, email, phone number, or account.</li>
+        <li data-i18n="privacy.nc2">No advertising identifiers; no cross-app/website tracking.</li>
+        <li data-i18n="privacy.nc3">No location data (time zone is a device setting, not your location).</li>
+        <li data-i18n="privacy.nc4">No third-party analytics or ad SDKs.</li>
       </ul>
 
-      <h2>Third parties</h2>
+      <h2 data-i18n="privacy.h2third">Third parties</h2>
       <ul>
-        <li><strong>Apple</strong> — Speech Recognition, iCloud/CloudKit, App Store &amp; subscriptions.</li>
-        <li><strong>Third-party AI provider</strong> — AI parsing of reminder text.</li>
-        <li><strong>Alibaba Cloud</strong> — hosts our request-forwarding service.</li>
+        <li data-i18n-html="privacy.tpApple"><strong>Apple</strong> — Speech Recognition, iCloud/CloudKit, App Store &amp; subscriptions.</li>
+        <li data-i18n-html="privacy.tpAI"><strong>Third-party AI provider</strong> — AI parsing of reminder text.</li>
+        <li data-i18n-html="privacy.tpCloud"><strong>Alibaba Cloud</strong> — hosts our request-forwarding service.</li>
       </ul>
-      <p>
+      <p data-i18n="privacy.pThird">
         We ask these providers to process data only to deliver the feature and not
         for their own unrelated purposes. Reminder text sent for parsing is used to
         return your result and is not used by us to build a profile of you.
       </p>
 
-      <h2>Data retention</h2>
-      <p>
+      <h2 data-i18n="privacy.h2retention">Data retention</h2>
+      <p data-i18n="privacy.pRetention">
         Reminder content is processed transiently to return results. We do not
         maintain our own user database of your reminders. Data you store in iCloud
         stays until you delete it. Operational request logs are retained for up to
         30 days for security and reliability, then deleted.
       </p>
 
-      <h2>Children</h2>
-      <p>
+      <h2 data-i18n="privacy.h2children">Children</h2>
+      <p data-i18n="privacy.pChildren">
         Remi is intended for a general audience (rating 4+) and is not directed to
         children under 13. We do not knowingly collect personal data from children.
       </p>
 
-      <h2>Your choices</h2>
+      <h2 data-i18n="privacy.h2choices">Your choices</h2>
       <ul>
-        <li>Turn off iCloud sync in Settings to keep data on device only.</li>
-        <li>Skip voice capture and type reminders instead.</li>
-        <li>Delete reminders in-app (including "Recently Deleted"); manage or delete iCloud data from your Apple device settings.</li>
-        <li>Manage or cancel your subscription in the App Store.</li>
+        <li data-i18n="privacy.ch1">Turn off iCloud sync in Settings to keep data on device only.</li>
+        <li data-i18n="privacy.ch2">Skip voice capture and type reminders instead.</li>
+        <li data-i18n="privacy.ch3">Delete reminders in-app (including "Recently Deleted"); manage or delete iCloud data from your Apple device settings.</li>
+        <li data-i18n="privacy.ch4">Manage or cancel your subscription in the App Store.</li>
       </ul>
 
-      <h2>Changes</h2>
-      <p>
+      <h2 data-i18n="privacy.h2changes">Changes</h2>
+      <p data-i18n="privacy.pChanges">
         We may update this policy; material changes will be reflected by a new
         effective date on this page.
       </p>
 
-      <h2>Contact</h2>
-      <p>
+      <h2 data-i18n="privacy.h2contact">Contact</h2>
+      <p data-i18n-html="privacy.pContact">
         Questions? Contact us at <a href="mailto:2501211450@qq.com">2501211450@qq.com</a>.
       </p>
     </article>
@@ -177,28 +196,28 @@
             <img src="assets/app-icon.png" alt="" width="34" height="34" />
             Remi
           </a>
-          <p>Voice-first, AI-powered reminders in English and 中文 — private by design.</p>
+          <p data-i18n="footer.tagline">Voice-first, AI-powered reminders in English and 中文 — private by design.</p>
         </div>
         <div class="footer-links">
           <div class="footer-col">
-            <h4>Product</h4>
-            <a href="index.html#features">Features</a>
-            <a href="index.html#how">How it works</a>
-            <a href="index.html#pricing">Pricing</a>
+            <h4 data-i18n="footer.product">Product</h4>
+            <a href="index.html#features" data-i18n="nav.features">Features</a>
+            <a href="index.html#how" data-i18n="nav.how">How it works</a>
+            <a href="index.html#pricing" data-i18n="nav.pricing">Pricing</a>
             <!-- App Store URL not published yet; placeholder kept intentionally. -->
-            <a aria-disabled="true">Coming soon</a>
+            <a aria-disabled="true" data-i18n="common.comingSoon">Coming soon</a>
           </div>
           <div class="footer-col">
-            <h4>Legal &amp; support</h4>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
-            <a href="support.html">Support</a>
+            <h4 data-i18n="footer.legalSupport">Legal &amp; support</h4>
+            <a href="privacy.html" data-i18n="common.privacyPolicy">Privacy Policy</a>
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" data-i18n="common.termsOfUse">Terms of Use</a>
+            <a href="support.html" data-i18n="common.support">Support</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; <span data-year>2026</span> Remi Developers. All rights reserved.</span>
-        <span>Contact: <a href="mailto:2501211450@qq.com">2501211450@qq.com</a></span>
+        <span>&copy; <span data-year>2026</span> Remi Developers. <span data-i18n="footer.rights">All rights reserved.</span></span>
+        <span><span data-i18n="footer.contactLabel">Contact:</span> <a href="mailto:2501211450@qq.com">2501211450@qq.com</a></span>
       </div>
     </div>
   </footer>

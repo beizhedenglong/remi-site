@@ -300,6 +300,46 @@ li { margin-bottom: var(--sp-xs); }
 }
 .nav-links a:hover { color: var(--text); text-decoration: none; }
 
+/* Right-align the nav cluster so the language switch + menu sit on the right. */
+.nav .container { justify-content: flex-start; gap: var(--sp-md); }
+.nav .brand { margin-right: auto; }
+
+/* ---------- Language switch ---------- */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--stroke);
+  border-radius: var(--r-pill);
+  overflow: hidden;
+  background: var(--surface-high);
+  flex: none;
+}
+.lang-switch button {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--secondary-text);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.85rem;
+  line-height: 1;
+  padding: 7px 12px;
+  cursor: pointer;
+  transition: background 0.15s var(--ease), color 0.15s var(--ease);
+}
+.lang-switch button:hover { color: var(--text); }
+html[data-lang="en"] .lang-switch [data-set-lang="en"],
+html[data-lang="zh"] .lang-switch [data-set-lang="zh"] {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+/* Hide content until i18n applies the chosen language. The inline <head> snippet
+   adds .i18n-hold only for 中文, so English visitors never wait; with JS off the
+   class is never added and the (English) markup shows normally. */
+html.i18n-hold body { visibility: hidden; }
+
 .nav-toggle {
   display: none;
   background: transparent;
