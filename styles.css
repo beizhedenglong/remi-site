@@ -210,6 +210,13 @@ li { margin-bottom: var(--sp-xs); }
 }
 .btn-primary:hover { box-shadow: var(--shadow-lg); }
 
+/* Keep nav button text legible (the muted .nav-links a color otherwise wins). */
+.nav-links a.btn { color: var(--on-primary); }
+
+/* "Coming soon" — legible, non-interactive while the app is unreleased. */
+.btn[aria-disabled="true"] { cursor: default; }
+.btn[aria-disabled="true"]:hover { transform: none; box-shadow: var(--shadow-md); }
+
 .btn-secondary {
   background: var(--surface-high);
   color: var(--on-primary-container);
