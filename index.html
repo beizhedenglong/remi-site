@@ -90,51 +90,15 @@
           <span class="hero-note" data-i18n="hero.note">7-day free trial · No account needed</span>
         </div>
 
-        <!-- CSS phone mockup (placeholder for real screenshots later) -->
-        <div class="phone-wrap" aria-hidden="true">
-          <div class="phone">
+        <!-- Real device screenshot — language-aware src (assets/shots/{en,zh}/main.png) -->
+        <div class="phone-wrap">
+          <div class="phone phone--shot">
             <div class="phone-screen">
-              <div class="phone-notch"></div>
-              <div class="screen-head">
-                <div class="greeting" data-i18n="mock.greeting">Good morning</div>
-                <div class="title" data-i18n="mock.today">Today</div>
-              </div>
-              <div class="screen-body">
-                <div class="task">
-                  <span class="check"></span>
-                  <span class="meta">
-                    <span class="name" data-i18n="mock.t1.name">Call the dentist</span><br />
-                    <span class="time" data-i18n="mock.t1.time">9:00 AM</span>
-                    <span class="pill" data-i18n="mock.health">Health</span>
-                  </span>
-                </div>
-                <div class="task">
-                  <span class="check"></span>
-                  <span class="meta">
-                    <span class="name" data-i18n="mock.t2.name">Pick up groceries</span><br />
-                    <span class="time" data-i18n="mock.t2.time">5:30 PM</span>
-                    <span class="pill" data-i18n="mock.errands">Errands</span>
-                  </span>
-                </div>
-                <div class="task done">
-                  <span class="check"></span>
-                  <span class="meta">
-                    <span class="name" data-i18n="mock.t3.name">Team standup</span><br />
-                    <span class="time" data-i18n="mock.t3.time">Done · 10:00 AM</span>
-                  </span>
-                </div>
-                <div class="task">
-                  <span class="check"></span>
-                  <span class="meta">
-                    <span class="name" data-i18n="mock.t4.name">Water the plants</span><br />
-                    <span class="time" data-i18n="mock.t4.time">7:00 PM</span>
-                    <span class="pill" data-i18n="mock.home">Home</span>
-                  </span>
-                </div>
-              </div>
-              <div class="screen-fab">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v4"/></svg>
-              </div>
+              <img class="phone-shot-img"
+                   data-i18n-attr="src:shot.main.src,alt:shot.main.alt"
+                   src="assets/shots/en/main.png"
+                   alt="Remi home screen showing the All Reminders list"
+                   width="720" height="1558" loading="eager" decoding="async" fetchpriority="high" />
             </div>
           </div>
         </div>
@@ -206,6 +170,51 @@
             <h3 data-i18n="how.s3.title">Never miss a thing</h3>
             <p data-i18n="how.s3.body">Smart notifications, widgets, and iCloud keep you on track everywhere.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Screenshot showcase ============ -->
+    <section class="section section--showcase" id="gallery">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="gallery.eyebrow">See it in action</span>
+          <h2 data-i18n="gallery.title">A closer look at Remi</h2>
+          <p data-i18n="gallery.intro">Real screens from the app — capture by voice, let AI organize, make it yours, and keep today in view.</p>
+        </div>
+        <div class="shot-gallery">
+          <figure class="shot reveal">
+            <div class="phone phone--shot phone--sm">
+              <div class="phone-screen">
+                <img data-i18n-attr="src:shot.voice.src,alt:shot.voice.cap" src="assets/shots/en/voice.png" alt="Hold to speak — Remi captures the whole thought." width="720" height="1558" loading="lazy" decoding="async" />
+              </div>
+            </div>
+            <figcaption data-i18n="shot.voice.cap">Hold to speak — Remi captures the whole thought.</figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <div class="phone phone--shot phone--sm">
+              <div class="phone-screen">
+                <img data-i18n-attr="src:shot.details.src,alt:shot.details.cap" src="assets/shots/en/details.png" alt="AI fills in the date, time, list, and subtasks." width="720" height="1558" loading="lazy" decoding="async" />
+              </div>
+            </div>
+            <figcaption data-i18n="shot.details.cap">AI fills in the date, time, list, and subtasks.</figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <div class="phone phone--shot phone--sm">
+              <div class="phone-screen">
+                <img data-i18n-attr="src:shot.themes.src,alt:shot.themes.cap" src="assets/shots/en/themes.png" alt="Six color themes, in light &amp; dark, to match your style." width="720" height="1558" loading="lazy" decoding="async" />
+              </div>
+            </div>
+            <figcaption data-i18n="shot.themes.cap">Six color themes, in light &amp; dark, to match your style.</figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <div class="phone phone--shot phone--sm">
+              <div class="phone-screen">
+                <img data-i18n-attr="src:shot.widget.src,alt:shot.widget.cap" src="assets/shots/en/widget.png" alt="Home-screen widgets keep today's reminders in view." width="720" height="1558" loading="lazy" decoding="async" />
+              </div>
+            </div>
+            <figcaption data-i18n="shot.widget.cap">Home-screen widgets keep today's reminders in view.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -293,10 +302,10 @@
           <span class="trial-tag" data-i18n="pricing.trialTag">7-day free trial</span>
           <div class="price" data-i18n-html="pricing.price">Free<small> for 7 days</small></div>
           <p style="color:var(--secondary-text);margin-top:var(--sp-sm)" data-i18n-html="pricing.thenLine">
-            then <span class="todo">[TODO: price / month]</span>, billed monthly
+            then $1.99/month, billed monthly
           </p>
-          <!-- TODO: replace # with the App Store product URL once published -->
-          <a class="btn btn-primary" href="#" style="width:100%;margin-top:var(--sp-lg)" data-i18n="pricing.cta">Start your free trial</a>
+          <!-- App Store link goes here once the app is published; shows "Coming soon" until then. -->
+          <a class="btn btn-primary" aria-disabled="true" style="width:100%;margin-top:var(--sp-lg)" data-i18n="common.comingSoon">Coming soon</a>
           <p class="fine" data-i18n-html="pricing.fine">
             Auto-renewable subscription. Cancel anytime in the App Store at least
             24 hours before the trial ends. See the
@@ -337,8 +346,8 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; <span data-year>2026</span> <span class="todo">[TODO: provider / developer name]</span>. <span data-i18n="footer.rights">All rights reserved.</span></span>
-        <span><span data-i18n="footer.contactLabel">Contact:</span> <span class="todo">[TODO: support email]</span></span>
+        <span>&copy; <span data-year>2026</span> Remi Developers. <span data-i18n="footer.rights">All rights reserved.</span></span>
+        <span><span data-i18n="footer.contactLabel">Contact:</span> <a href="mailto:2501211450@qq.com">2501211450@qq.com</a></span>
       </div>
     </div>
   </footer>
