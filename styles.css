@@ -53,6 +53,9 @@
   --shadow-md: 0 8px 16px rgba(77, 39, 26, 0.10);
   --shadow-lg: 0 24px 60px rgba(77, 39, 26, 0.16);
 
+  /* Bright edge a translucent material catches (light on the surface) */
+  --edge-highlight: rgba(255, 255, 255, 0.6);
+
   /* Layout */
   --container: 1120px;
   --nav-h: 68px;
@@ -89,6 +92,8 @@
     --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.30);
     --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.40);
     --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.55);
+
+    --edge-highlight: rgba(255, 255, 255, 0.06);
   }
 }
 
@@ -114,6 +119,7 @@ body {
   background: var(--surface);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  font-optical-sizing: auto;
 }
 
 h1, h2, h3, h4 {
@@ -121,9 +127,10 @@ h1, h2, h3, h4 {
   line-height: 1.15;
   letter-spacing: -0.02em;
   font-weight: 800;
+  text-wrap: balance; /* keep multi-line headings visually even */
 }
 
-p { margin: 0 0 var(--sp-md); }
+p { margin: 0 0 var(--sp-md); text-wrap: pretty; }
 
 a { color: var(--primary-strong); text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -201,7 +208,11 @@ li { margin-bottom: var(--sp-xs); }
   text-decoration: none;
 }
 .btn:hover { text-decoration: none; transform: translateY(-2px); }
-.btn:active { transform: translateY(0); }
+/* Respond on press, instantly (Apple: feedback lives on pointer-down). */
+.btn:active {
+  transform: scale(0.97);
+  transition: transform 0.11s ease-out;
+}
 
 .btn-primary {
   background: linear-gradient(135deg, var(--primary), var(--primary-strong));
@@ -215,7 +226,8 @@ li { margin-bottom: var(--sp-xs); }
 
 /* "Coming soon" — legible, non-interactive while the app is unreleased. */
 .btn[aria-disabled="true"] { cursor: default; }
-.btn[aria-disabled="true"]:hover { transform: none; box-shadow: var(--shadow-md); }
+.btn[aria-disabled="true"]:hover,
+.btn[aria-disabled="true"]:active { transform: none; box-shadow: var(--shadow-md); }
 
 .btn-secondary {
   background: var(--surface-high);
@@ -258,10 +270,21 @@ li { margin-bottom: var(--sp-xs); }
   height: var(--nav-h);
   display: flex;
   align-items: center;
-  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
   -webkit-backdrop-filter: saturate(180%) blur(14px);
   backdrop-filter: saturate(180%) blur(14px);
-  border-bottom: 1px solid var(--stroke);
+  /* Scroll edge effect: translucent glass with no hard divider at rest; the
+     hairline + shadow fade in only once content scrolls under the bar. The
+     inset top line is the light the material catches. */
+  border-bottom: 1px solid transparent;
+  box-shadow: 0 1px 0 0 var(--edge-highlight) inset;
+  transition: background 0.25s var(--ease), border-color 0.25s var(--ease),
+    box-shadow 0.25s var(--ease);
+}
+.nav.scrolled {
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  border-bottom-color: var(--stroke);
+  box-shadow: 0 1px 0 0 var(--edge-highlight) inset, var(--shadow-sm);
 }
 .nav .container {
   display: flex;
@@ -329,6 +352,7 @@ li { margin-bottom: var(--sp-xs); }
   transition: background 0.15s var(--ease), color 0.15s var(--ease);
 }
 .lang-switch button:hover { color: var(--text); }
+.lang-switch button:active { transform: scale(0.94); transition: transform 0.1s ease-out; }
 html[data-lang="en"] .lang-switch [data-set-lang="en"],
 html[data-lang="zh"] .lang-switch [data-set-lang="zh"] {
   background: var(--primary);
@@ -349,6 +373,7 @@ html.i18n-hold body { visibility: hidden; }
   color: var(--text);
 }
 .nav-toggle svg { width: 26px; height: 26px; }
+.nav-toggle:active { transform: scale(0.9); transition: transform 0.1s ease-out; }
 
 /* ---------- Hero ---------- */
 .hero {
@@ -740,6 +765,31 @@ html.i18n-hold body { visibility: hidden; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
   .phone { animation: none; transition: none; }
+  /* Keep feedback, drop the movement: no hover lift or press scale. */
+  .btn:hover, .card:hover, .phone:hover { transform: none; }
+  .btn:active, .lang-switch button:active, .nav-toggle:active { transform: none; }
+}
+
+/* Frostier/solid chrome when the user reduces transparency. */
+@media (prefers-reduced-transparency: reduce) {
+  .nav, .nav.scrolled {
+    background: var(--surface);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+/* Near-solid surfaces with defined borders in high-contrast mode. */
+@media (prefers-contrast: more) {
+  .nav, .nav.scrolled {
+    background: var(--surface);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    border-bottom-color: var(--text);
+  }
+  .card, .pricing, .callout-card, .contact-card, .faq details {
+    border-color: var(--secondary-text);
+  }
 }
 
 /* ---------- Responsive ---------- */

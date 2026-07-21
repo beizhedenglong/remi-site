@@ -42,6 +42,17 @@
     }
   }
 
+  // Nav scroll-edge effect: the hairline + shadow appear only once the page has
+  // scrolled, so the bar reads as translucent glass at rest.
+  var nav = document.querySelector(".nav");
+  if (nav) {
+    var onScroll = function () {
+      nav.classList.toggle("scrolled", window.scrollY > 4);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
   // Current year in footer(s)
   var year = String(new Date().getFullYear());
   document.querySelectorAll("[data-year]").forEach(function (el) {
