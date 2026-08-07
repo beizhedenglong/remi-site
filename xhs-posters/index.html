@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Remi 小红书推广图</title>
+  <style>
+    :root {
+      --ink: #221815;
+      --muted: #6c5a52;
+      --paper: #fff8f3;
+      --cream: #ffe9dc;
+      --clay: #bd8068;
+      --rose: #e9a09a;
+      --mint: #90c9b6;
+      --gold: #e7b962;
+      --line: rgba(70, 39, 26, 0.16);
+      --shadow: 0 34px 86px rgba(76, 38, 22, 0.24);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #e8dfd7;
+      color: var(--ink);
+      font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", sans-serif;
+    }
+
+    main {
+      display: grid;
+      gap: 40px;
+      padding: 40px;
+    }
+
+    .poster {
+      position: relative;
+      width: 1080px;
+      height: 1440px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(255, 255, 255, 0.9) 0 150px, transparent 151px),
+        radial-gradient(circle at 90% 20%, rgba(231, 185, 98, 0.34) 0 210px, transparent 211px),
+        linear-gradient(150deg, #fffaf6 0%, #ffe6d7 48%, #f7c8ba 100%);
+      border-radius: 0;
+      isolation: isolate;
+    }
+
+    .poster::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.22;
+      background-image:
+        linear-gradient(rgba(106, 67, 48, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(106, 67, 48, 0.12) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 82%, transparent);
+      z-index: -2;
+    }
+
+    .poster::after {
+      content: "";
+      position: absolute;
+      width: 920px;
+      height: 920px;
+      left: -260px;
+      bottom: -360px;
+      border-radius: 50%;
+      background: rgba(144, 201, 182, 0.28);
+      z-index: -3;
+    }
+
+    .topbar {
+      position: absolute;
+      top: 58px;
+      left: 68px;
+      right: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 4;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-weight: 900;
+      font-size: 36px;
+      letter-spacing: 0;
+    }
+
+    .brand img {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      box-shadow: 0 12px 28px rgba(85, 41, 26, 0.18);
+    }
+
+    .tag {
+      padding: 12px 22px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.48);
+      backdrop-filter: blur(16px);
+      color: #6d4435;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .content {
+      position: absolute;
+      left: 68px;
+      right: 68px;
+      top: 150px;
+      z-index: 3;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      background: rgba(34, 24, 21, 0.88);
+      color: #fff7f0;
+      font-size: 26px;
+      font-weight: 800;
+    }
+
+    h1 {
+      max-width: 890px;
+      margin: 0;
+      color: var(--ink);
+      font-size: 94px;
+      line-height: 1.03;
+      letter-spacing: 0;
+      font-weight: 950;
+    }
+
+    h1 .accent {
+      color: #a86550;
+    }
+
+    .sub {
+      max-width: 790px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: 34px;
+      line-height: 1.38;
+      font-weight: 650;
+    }
+
+    .phone {
+      position: absolute;
+      right: 72px;
+      bottom: 128px;
+      width: 420px;
+      padding: 14px;
+      border-radius: 56px;
+      background: linear-gradient(145deg, #2b211d, #6b4b40);
+      box-shadow: var(--shadow);
+      transform: rotate(3.5deg);
+      z-index: 2;
+    }
+
+    .phone.left {
+      left: 70px;
+      right: auto;
+      transform: rotate(-4deg);
+    }
+
+    .phone.big {
+      width: 510px;
+      right: 66px;
+      bottom: 92px;
+    }
+
+    .phone.center {
+      left: 50%;
+      right: auto;
+      bottom: 88px;
+      transform: translateX(-50%) rotate(0deg);
+      width: 500px;
+    }
+
+    .phone img {
+      display: block;
+      width: 100%;
+      border-radius: 42px;
+      background: #fff;
+    }
+
+    .bubble {
+      position: absolute;
+      z-index: 5;
+      max-width: 540px;
+      padding: 24px 28px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.68);
+      box-shadow: 0 18px 44px rgba(75, 38, 24, 0.14);
+      backdrop-filter: blur(18px);
+      color: #3b2822;
+      font-size: 31px;
+      line-height: 1.28;
+      font-weight: 850;
+    }
+
+    .bubble.small {
+      max-width: 390px;
+      font-size: 28px;
+    }
+
+    .bubble.dark {
+      background: rgba(34, 24, 21, 0.9);
+      color: #fff7f1;
+      border-color: rgba(34, 24, 21, 0.12);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 38px;
+      max-width: 820px;
+    }
+
+    .chip {
+      padding: 15px 22px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid var(--line);
+      color: #5d3e32;
+      font-size: 26px;
+      font-weight: 800;
+      box-shadow: 0 12px 26px rgba(85, 41, 26, 0.08);
+    }
+
+    .panel {
+      position: absolute;
+      left: 68px;
+      right: 68px;
+      bottom: 108px;
+      z-index: 4;
+      display: grid;
+      gap: 16px;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 86px;
+      padding: 20px 26px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      box-shadow: 0 16px 34px rgba(75, 38, 24, 0.1);
+      backdrop-filter: blur(16px);
+    }
+
+    .row strong {
+      font-size: 31px;
+      font-weight: 900;
+    }
+
+    .row span {
+      color: #795446;
+      font-size: 28px;
+      font-weight: 760;
+    }
+
+    .scene-grid {
+      position: absolute;
+      left: 68px;
+      right: 68px;
+      bottom: 120px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      z-index: 4;
+    }
+
+    .scene {
+      min-height: 150px;
+      padding: 26px;
+      border-radius: 32px;
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      box-shadow: 0 16px 36px rgba(75, 38, 24, 0.11);
+      backdrop-filter: blur(16px);
+    }
+
+    .scene strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 32px;
+      font-weight: 920;
+    }
+
+    .scene span {
+      display: block;
+      color: #765145;
+      font-size: 26px;
+      line-height: 1.28;
+      font-weight: 720;
+    }
+
+    .quote {
+      position: absolute;
+      left: 70px;
+      bottom: 270px;
+      z-index: 5;
+      max-width: 575px;
+      padding: 32px;
+      border-radius: 36px 36px 36px 10px;
+      background: #2a211d;
+      color: #fff7ef;
+      box-shadow: 0 22px 58px rgba(55, 30, 20, 0.22);
+      font-size: 38px;
+      line-height: 1.24;
+      font-weight: 900;
+    }
+
+    .mini-note {
+      position: absolute;
+      left: 68px;
+      right: 68px;
+      bottom: 52px;
+      z-index: 6;
+      color: rgba(66, 43, 35, 0.7);
+      font-size: 25px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .cover .content {
+      top: 178px;
+    }
+
+    .cover h1 {
+      font-size: 102px;
+      max-width: 820px;
+    }
+
+    .cover .phone {
+      width: 475px;
+      right: 74px;
+      bottom: 120px;
+    }
+
+    .cover .bubble {
+      left: 68px;
+      bottom: 362px;
+    }
+
+    .voice .quote {
+      bottom: 210px;
+    }
+
+    .voice .bubble {
+      right: 64px;
+      bottom: 332px;
+    }
+
+    .ai .panel {
+      width: 500px;
+      left: 68px;
+      right: auto;
+      bottom: 128px;
+    }
+
+    .alarm {
+      background:
+        radial-gradient(circle at 12% 12%, rgba(255, 255, 255, 0.9) 0 155px, transparent 156px),
+        linear-gradient(150deg, #fff9f5 0%, #ffe3d2 44%, #f1a999 100%);
+    }
+
+    .alarm .clock {
+      position: absolute;
+      right: 92px;
+      bottom: 250px;
+      width: 390px;
+      height: 390px;
+      border-radius: 50%;
+      background: #fffdf9;
+      border: 18px solid #2a211d;
+      box-shadow: var(--shadow);
+      z-index: 3;
+    }
+
+    .alarm .clock::before,
+    .alarm .clock::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 16px;
+      border-radius: 999px;
+      background: #2a211d;
+      transform-origin: 50% 100%;
+    }
+
+    .alarm .clock::before {
+      height: 124px;
+      transform: translate(-50%, -100%) rotate(0deg);
+    }
+
+    .alarm .clock::after {
+      height: 96px;
+      transform: translate(-50%, -100%) rotate(90deg);
+    }
+
+    .alarm .clock span {
+      position: absolute;
+      inset: 118px 0 auto;
+      text-align: center;
+      color: #a86550;
+      font-size: 42px;
+      font-weight: 950;
+    }
+
+    .alarm .panel {
+      width: 560px;
+      right: auto;
+      bottom: 158px;
+    }
+
+    .privacy .panel {
+      bottom: 150px;
+    }
+
+    .download .content {
+      text-align: center;
+      top: 170px;
+    }
+
+    .download h1,
+    .download .sub {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .download .cta {
+      position: absolute;
+      left: 120px;
+      right: 120px;
+      bottom: 230px;
+      z-index: 5;
+      padding: 44px 36px;
+      border-radius: 44px;
+      background: rgba(34, 24, 21, 0.94);
+      color: #fff8f3;
+      text-align: center;
+      box-shadow: 0 30px 74px rgba(57, 31, 20, 0.28);
+    }
+
+    .download .cta strong {
+      display: block;
+      font-size: 58px;
+      line-height: 1.12;
+      font-weight: 950;
+    }
+
+    .download .cta span {
+      display: block;
+      margin-top: 18px;
+      color: #f1d1c2;
+      font-size: 30px;
+      font-weight: 750;
+    }
+
+    .download .phone {
+      width: 390px;
+      right: 345px;
+      bottom: 532px;
+      opacity: 0.96;
+      transform: rotate(0deg);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="poster cover" id="poster-01">
+      <div class="topbar">
+        <div class="brand"><img src="../assets/app-icon.png" alt="" />Remi</div>
+        <div class="tag">AI 提醒 + 闹钟</div>
+      </div>
+      <div class="content">
+        <div class="eyebrow">想到就说，不用打字</div>
+        <h1>懒得填表的人，真的需要 <span class="accent">Remi</span></h1>
+        <p class="sub">说一句话，AI 自动建提醒；重要的事还能像闹钟一样叫你。</p>
+        <div class="chips">
+          <span class="chip">语音速记</span>
+          <span class="chip">AI 自动整理</span>
+          <span class="chip">闹钟提醒</span>
+          <span class="chip">中英双语</span>
+        </div>
+      </div>
+      <div class="bubble dark">普通通知容易错过，重要的事要响起来。</div>
+      <div class="phone big"><img src="../assets/shots/zh/voice.png" alt="Remi 语音速记界面" /></div>
+      <div class="mini-note">评论「提醒」获取下载 / 内测链接</div>
+    </section>
+
+    <section class="poster voice" id="poster-02">
+      <div class="topbar">
+        <div class="brand"><img src="../assets/app-icon.png" alt="" />Remi</div>
+        <div class="tag">语音速记</div>
+      </div>
+      <div class="content">
+        <div class="eyebrow">一句话创建提醒</div>
+        <h1>走路、做饭、通勤时，直接说</h1>
+        <p class="sub">不用切到日历，不用一个个选时间，把脑子里的事先倒出来。</p>
+      </div>
+      <div class="phone left"><img src="../assets/shots/zh/voice.png" alt="Remi 语音录入" /></div>
+      <div class="quote">“明天早上 8 点叫我吃药，提前 10 分钟响。”</div>
+      <div class="bubble small">Remi 会把这句话变成一条可提醒的任务。</div>
+      <div class="mini-note">适合突然想起事情、但不想打字的时刻</div>
+    </section>
+
+    <section class="poster ai" id="poster-03">
+      <div class="topbar">
+        <div class="brand"><img src="../assets/app-icon.png" alt="" />Remi</div>
+        <div class="tag">AI 智能整理</div>
+      </div>
+      <div class="content">
+        <div class="eyebrow">不是只记一句话</div>
+        <h1>AI 帮你拆好时间、清单和子任务</h1>
+        <p class="sub">自然说话也能变成结构化提醒，少一步手动编辑。</p>
+      </div>
+      <div class="phone big"><img src="../assets/shots/zh/details.png" alt="Remi 任务详情" /></div>
+      <div class="panel">
+        <div class="row"><strong>标题</strong><span>吃药</span></div>
+        <div class="row"><strong>时间</strong><span>明天 8:00</span></div>
+        <div class="row"><strong>清单</strong><span>健康</span></div>
+        <div class="row"><strong>提醒</strong><span>提前 10 分钟</span></div>
+      </div>
+      <div class="mini-note">离线时也有本地解析兜底</div>
+    </section>
+
+    <section class="poster alarm" id="poster-04">
+      <div class="topbar">
+        <div class="brand"><img src="../assets/app-icon.png" alt="" />Remi</div>
+        <div class="tag">闹钟功能</div>
+      </div>
+      <div class="content">
+        <div class="eyebrow">重要的事别只弹一下</div>
+        <h1>吃药、会议、出门，到点真的提醒你</h1>
+        <p class="sub">普通通知一忙就划走。Remi 支持更强的闹钟式提醒，适合不能错过的事。</p>
+      </div>
+      <div class="clock"><span>08:00</span></div>
+      <div class="panel">
+        <div class="row"><strong>吃药</strong><span>每天 8 点</span></div>
+        <div class="row"><strong>会议</strong><span>提前 10 分钟</span></div>
+        <div class="row"><strong>出门</strong><span>到点响铃</span></div>
+      </div>
+      <div class="mini-note">把“我等会儿再记”变成“到点就响”</div>
+    </section>
+
+    <section class="poster scenes" id="poster-05">
+      <div class="topbar">
+        <div class="brand"><img src="../assets/app-icon.png" alt="" />Remi</div>
+        <div class="tag">适用场景</div>
+      </div>
+      <div class="content">
+        <div class="eyebrow">这些事最适合交给 Remi</div>
+        <h1>别再靠脑子硬记生活琐事</h1>
+        <p class="sub">学习、工作、生活、健康，都可以用一句话塞进提醒里。</p>
+      </div>
+      <div class="scene-grid">
+        <div class="scene"><strong>学生党</strong><span>DDL、考试、作业、社团活动</span></div>
+        <div class="scene"><strong>上班族</strong><span>会议、报销、客户跟进、周报</span></div>
+        <div class="scene"><strong>生活党</strong><span>缴费、取快递、买菜、关火</span></div>
+        <div class="scene"><strong>健康管理</strong><span>吃药、喝水、复诊、运动</span></div>
+      </div>
+      <div class="mini-note">评论区告诉我：你最常忘什么？</div>
+    </section>
+
+    <section class="poster privacy" id="poster-06">
+      <div class="topbar">
+        <div class="brand"><img src="../assets/app-icon.png" alt="" />Remi</div>
+        <div class="tag">隐私 + 同步</div>
+      </div>
+      <div class="content">
+        <div class="eyebrow">好用，也要安心</div>
+        <h1>无账号、无广告，用自己的 iCloud 同步</h1>
+        <p class="sub">提醒存在你的设备和私人 iCloud。没有第三方广告追踪，也不需要注册登录。</p>
+      </div>
+      <div class="phone center"><img src="../assets/shots/zh/widget.png" alt="Remi 小组件" /></div>
+      <div class="panel">
+        <div class="row"><strong>无账号</strong><span>打开就能用</span></div>
+        <div class="row"><strong>无广告</strong><span>不打扰</span></div>
+        <div class="row"><strong>iCloud</strong><span>多设备同步</span></div>
+      </div>
+      <div class="mini-note">主屏小组件让今天的提醒一眼可见</div>
+    </section>
+
+    <section class="poster download" id="poster-07">
+      <div class="topbar">
+        <div class="brand"><img src="../assets/app-icon.png" alt="" />Remi</div>
+        <div class="tag">下载互动</div>
+      </div>
+      <div class="content">
+        <div class="eyebrow">想试试这个 AI 提醒 App？</div>
+        <h1>评论「提醒」</h1>
+        <p class="sub">我发你下载 / 内测链接。也想知道：你最希望 Remi 用闹钟提醒你什么？</p>
+      </div>
+      <div class="phone"><img src="../assets/shots/zh/themes.png" alt="Remi 主题界面" /></div>
+      <div class="cta">
+        <strong>语音创建提醒<br />AI 整理，到点响铃</strong>
+        <span>中英双语 · iCloud 同步 · 7 天免费试用</span>
+      </div>
+      <div class="mini-note">Remi · Voice-first AI reminders</div>
+    </section>
+  </main>
+</body>
+</html>
