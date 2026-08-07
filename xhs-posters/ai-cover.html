@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Remi 小红书 AI 封面</title>
+  <style>
+    :root {
+      --canvas-w: 1080;
+      --canvas-h: 1440;
+      --scale: 0.5;
+      --ink: #211513;
+      --muted: #735b52;
+      --dark: #2d1f1a;
+      --cream: #fffaf5;
+      --peach: #ffd7c6;
+      --clay: #a86b58;
+      --mint: #95c7b7;
+      --gold: #e2aa55;
+      --line: rgba(94, 58, 42, 0.12);
+      --shadow: 0 28px 72px rgba(74, 35, 18, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: #e8dfd7;
+      font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", sans-serif;
+      color: var(--ink);
+    }
+
+    .preview-frame {
+      width: calc(1080px * var(--scale));
+      height: calc(1440px * var(--scale));
+    }
+
+    .poster {
+      position: relative;
+      width: 1080px;
+      height: 1440px;
+      overflow: hidden;
+      transform: scale(var(--scale));
+      transform-origin: top left;
+      background:
+        radial-gradient(circle at 29% 19%, rgba(255, 255, 255, 0.64) 0 270px, transparent 271px),
+        radial-gradient(circle at 94% 31%, rgba(226, 170, 85, 0.28) 0 270px, transparent 271px),
+        radial-gradient(circle at 9% 84%, rgba(149, 199, 183, 0.25) 0 320px, transparent 321px),
+        linear-gradient(150deg, #fffbf6 0%, #ffe3d3 58%, #f5b7a7 100%);
+      isolation: isolate;
+    }
+
+    .poster::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.65;
+    }
+
+    .top-card {
+      position: absolute;
+      left: 70px;
+      top: 60px;
+      width: 940px;
+      height: 118px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 56px 18px 24px;
+      border-radius: 42px;
+      background: rgba(255, 255, 255, 0.58);
+      border: 1px solid rgba(255, 255, 255, 0.56);
+      box-shadow: 0 16px 44px rgba(74, 35, 18, 0.08);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      column-gap: 22px;
+      align-items: center;
+    }
+
+    .brand img {
+      width: 82px;
+      height: 82px;
+      border-radius: 22px;
+      box-shadow: 0 12px 26px rgba(74, 35, 18, 0.12);
+    }
+
+    .brand-title {
+      display: block;
+      font-size: 46px;
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+
+    .brand-subtitle {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 800;
+    }
+
+    .hero-icon-wrap {
+      position: absolute;
+      left: 390px;
+      top: 206px;
+      width: 300px;
+      height: 300px;
+      display: grid;
+      place-items: center;
+      border-radius: 72px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.66);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+    }
+
+    .hero-icon {
+      width: 220px;
+      height: 220px;
+      border-radius: 52px;
+    }
+
+    .spark {
+      position: absolute;
+      width: var(--size);
+      height: var(--size);
+      transform: rotate(45deg);
+      background: var(--color);
+      clip-path: polygon(50% 0, 61% 38%, 100% 50%, 61% 62%, 50% 100%, 39% 62%, 0 50%, 39% 38%);
+    }
+
+    .spark-1 { --size: 58px; --color: var(--gold); left: 714px; top: 238px; }
+    .spark-2 { --size: 44px; --color: var(--mint); left: 324px; top: 358px; }
+    .spark-3 { --size: 38px; --color: #bf806e; left: 692px; top: 464px; }
+
+    .headline {
+      position: absolute;
+      left: 86px;
+      top: 572px;
+      width: 908px;
+      margin: 0;
+      text-align: center;
+      font-size: 74px;
+      line-height: 1.22;
+      font-weight: 950;
+      letter-spacing: 0;
+    }
+
+    .subcopy {
+      position: absolute;
+      left: 126px;
+      top: 802px;
+      width: 828px;
+      margin: 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 30px;
+      line-height: 1.42;
+      font-weight: 760;
+    }
+
+    .quote {
+      position: absolute;
+      left: 116px;
+      top: 934px;
+      width: 848px;
+      min-height: 122px;
+      display: grid;
+      place-items: center;
+      padding: 24px 38px;
+      border-radius: 36px;
+      background: rgba(45, 31, 26, 0.95);
+      box-shadow: 0 28px 72px rgba(74, 35, 18, 0.18);
+      color: #fff9f4;
+      text-align: center;
+      font-size: 33px;
+      line-height: 1.25;
+      font-weight: 950;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: var(--w);
+      height: 62px;
+      padding: 0 18px;
+      border-radius: 31px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.58);
+      box-shadow: 0 14px 32px rgba(74, 35, 18, 0.08);
+      color: #4d332b;
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 860;
+      white-space: nowrap;
+    }
+
+    .tag.dark {
+      background: var(--dark);
+      color: #fff9f4;
+      box-shadow: none;
+    }
+
+    .tag-row {
+      position: absolute;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .tag-row.first { top: 1148px; }
+    .tag-row.second { top: 1234px; }
+
+    .footer {
+      position: absolute;
+      left: 70px;
+      right: 70px;
+      top: 1360px;
+      margin: 0;
+      color: rgba(67, 47, 40, 0.72);
+      text-align: center;
+      font-size: 25px;
+      line-height: 1.25;
+      font-weight: 820;
+    }
+
+    @media print {
+      body {
+        display: block;
+        background: transparent;
+      }
+
+      .preview-frame {
+        width: 1080px;
+        height: 1440px;
+      }
+
+      .poster {
+        transform: none;
+      }
+    }
+
+    body.exporting {
+      display: block;
+      width: 1080px;
+      height: 1440px;
+      min-height: 1440px;
+      overflow: hidden;
+      background: transparent;
+    }
+
+    body.exporting .preview-frame {
+      width: 1080px;
+      height: 1440px;
+    }
+
+    body.exporting .poster {
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-frame" aria-label="Remi 小红书 AI 封面预览">
+    <article class="poster">
+      <header class="top-card">
+        <div class="brand">
+          <img src="../assets/app-icon.png" alt="Remi app icon" />
+          <div>
+            <span class="brand-title">Remi</span>
+            <span class="brand-subtitle">AI Reminders</span>
+          </div>
+        </div>
+        <span class="tag dark" style="--w: 250px">AI 提醒事项助手</span>
+      </header>
+
+      <div class="hero-icon-wrap">
+        <img class="hero-icon" src="../assets/app-icon.png" alt="Remi app icon" />
+      </div>
+      <span class="spark spark-1"></span>
+      <span class="spark spark-2"></span>
+      <span class="spark spark-3"></span>
+
+      <h1 class="headline">说一句话，<br />AI 帮你建好提醒</h1>
+      <p class="subcopy">AI自动识别时间、日期、和子任务；重要事项闹钟提醒。</p>
+      <div class="quote">“下午两点提醒我去超市，
+      <br />
+        每周五下午五点提醒我打羽毛球”</div>
+
+      <div class="tag-row first">
+        <span class="tag" style="--w: 178px">语音速记</span>
+        <span class="tag" style="--w: 200px">AI 整理</span>
+        <span class="tag" style="--w: 178px">闹钟提醒</span>
+      </div>
+      <div class="tag-row second">
+        <span class="tag" style="--w: 178px">中英双语</span>
+        <span class="tag" style="--w: 210px">iCloud 同步</span>
+        <span class="tag" style="--w: 230px">无账号无广告</span>
+        <span class="tag" style="--w: 232px">离线解析兜底</span>
+      </div>
+    </article>
+  </div>
+
+  <script>
+    function updateScale() {
+      if (new URLSearchParams(window.location.search).has("export")) {
+        document.body.classList.add("exporting");
+        document.documentElement.style.setProperty("--scale", "1");
+        return;
+      }
+
+      const scale = Math.min((window.innerWidth - 32) / 1080, (window.innerHeight - 32) / 1440, 1);
+      document.documentElement.style.setProperty("--scale", String(Math.max(scale, 0.1)));
+    }
+
+    updateScale();
+    window.addEventListener("resize", updateScale);
+  </script>
+</body>
+</html>
