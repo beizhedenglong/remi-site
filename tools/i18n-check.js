@@ -3,7 +3,8 @@
  * Checks that every data-i18n* key used in the HTML exists in BOTH the English
  * and Chinese dictionaries in i18n.js. Run from the site root:
  *   node tools/i18n-check.js .
- * Exits non-zero if any key is missing or not present exactly once per language.
+ * Exits non-zero if any key is missing, not present exactly once per language,
+ * or public copy exposes a private AI provider name.
  */
 const fs = require("fs");
 const dir = process.argv[2] || ".";
@@ -28,6 +29,14 @@ used.forEach((k) => {
   const rx = new RegExp('"' + k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + '"\\s*:', "g");
   const count = (js.match(rx) || []).length;
   if (count !== 2) problems.push(k + " -> found " + count + " (expected 2: en+zh)");
+});
+
+const privateProviderName = "deep" + "seek";
+pages.concat("i18n.js").forEach((file) => {
+  const content = fs.readFileSync(dir + "/" + file, "utf8");
+  if (content.toLowerCase().includes(privateProviderName)) {
+    problems.push(file + " -> exposes the private AI provider name");
+  }
 });
 
 console.log("HTML pages scanned:", pages.length);
